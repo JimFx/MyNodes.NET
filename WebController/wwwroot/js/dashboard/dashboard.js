@@ -175,6 +175,18 @@ function createPanel(node) {
     $(panelTemplate(node)).hide().appendTo("#panelsContainer").fadeIn(elementsFadeTime);
 
     $('#panelTitle-' + node.PanelId).html(node.PanelName);
+    
+    $('#toggle-' + node.PanelId).click(function () {
+        $('#uiContainer-' + node.PanelId).slideToggle('fast');
+
+        if ($('#toggle-' + node.PanelId).attr('class') == 'toggle up icon') {
+            $('#toggle-' + node.PanelId).attr('class', 'toggle down icon');
+        }
+        else
+        {
+            $('#toggle-' + node.PanelId).attr('class', 'toggle up icon');
+        }
+    });
 }
 
 function removePanel(panelId) {
